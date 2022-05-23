@@ -1,4 +1,4 @@
-# Functions to preprocess data
+# Functions to preprocess kroki
 import numpy as np
 import scipy
 from scipy.signal import filtfilt, butter, find_peaks
@@ -17,7 +17,9 @@ def filtering(data, f_cut_off, fs, order=4):
     return filtered_data
 
 def find_peak(data):
-    peaks, _ = find_peaks(data)
+    # peaks, _ = find_peaks(kroki,prominence=0.1,distance=20,wlen=15)
+    # peaks, _ = find_peaks(data)
+    peaks, _ = find_peaks(data,prominence=(0.12,None),distance=20)
     return peaks
 
 def moving_variance(signal, window):
